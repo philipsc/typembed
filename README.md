@@ -23,3 +23,5 @@ Typembed 是为 Typecho 添加对在线视频支持的一款插件（支持手�
 上传文件夹 Typembed 至 /usr/plugins/ 目录
 
 在插件管理页面中激活 Typembed
+
+附送高级功能激活码：81ZDzYWnqKfjjRME
