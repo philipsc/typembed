@@ -15,3 +15,9 @@ Typembed 是为 Typecho 添加对在线视频支持的一款插件（支持手�
 5. 修复B站视频调用 `手机端效果可能不好`
 6. 手机、电脑端都是用iframe来调用播放器 `因为大多数视频网站已经支持HTML5播放器了`
 7. 测试了优酷、B站、QQ音乐MV、QQ视频，更多的站点暂未测试
+
+插件安装
+
+下载 Typembed 文件.
+上传文件夹 Typembed 至 /usr/plugins/ 目录.
+在插件管理页面中激活 Typembed.
