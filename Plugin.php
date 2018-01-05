@@ -57,7 +57,7 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
             ),
             'v.qq.com' => array(
                 '#https?://v\.qq\.com/(?:[a-z0-9_\./]+\?vid=(?<video_id>[a-z0-9_=\-]+)|(?:[a-z0-9/]+)/(?<video_id2>[a-z0-9_=\-]+))#i',
-                '//v.qq.com/iframe/player.html?vid={video_id}&tiny=1&auto=0',
+                '//v.qq.com/iframe/player.html?vid={video_id}&tiny=0&auto=0',
                 '',
             ),
             'my.tv.sohu.com' => array(
