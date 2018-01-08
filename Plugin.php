@@ -7,7 +7,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * @author Fengzi
  * @version 1.3.1
  * @dependence 13.12.12-*
- * @link http://www.fengziliu.com/typembed.html
+ * @link https://www.v2ex.cc/152.html
  */
 class Typembed_Plugin implements Typecho_Plugin_Interface{
 
