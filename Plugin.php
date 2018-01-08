@@ -1,10 +1,10 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 /**
- * Typembed 视频播放插件
+ * Typembed 视频播放插件，原作者Fengzi
  *
  * @package Typembed
- * @author Fengzi
+ * @author 不稽一格
  * @version 1.3.1
  * @dependence 13.12.12-*
  * @link https://www.v2ex.cc/152.html
