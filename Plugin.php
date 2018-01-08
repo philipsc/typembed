@@ -5,7 +5,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  *
  * @package Typembed
  * @author Fengzi
- * @version 1.3.0
+ * @version 1.3.1
  * @dependence 13.12.12-*
  * @link http://www.fengziliu.com/typembed.html
  */
@@ -40,7 +40,7 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
             'www.mgtv.com',
             'www.acfun.tv',
             'www.acfun.cn',
-            //'www.bilibili.com'
+            'www.bilibili.com'
         );
         $is_music = array('music.163.com');
         $providers = array(
@@ -187,7 +187,10 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
                 '<iframe src="%1$s" width="%2$s" height="%3$s" frameborder="0" allowfullscreen="true"></iframe>',
                 $url, $width, $height);
         }
-        return '<div id="typembed" style="/* background: #333; */overflow: hidden; line-height: 0;">'.$html.'</div>';
+        //使用yodu模板的样式
+        return '<div id="yodu-tv">'.$html.'</div>';
+        //注释保留原来的样式
+        //return '<div id="typembed" style="background: #333; overflow: hidden; line-height: 0;">'.$html.'</div>';
     }
 
     /**
@@ -230,8 +233,8 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
             ), 0, _t('跳转播放'), _t('手机端不支持H5播放的视频，将跳转到源网站播放'));
             $form->addInput($jump_play->addRule('enum', _t('必须选择一个模式'), array(0, 1)));
         }else{
-            $typembed_code_text = new Typecho_Widget_Helper_Form_Element_Text('typembed_code', NULL, '', _t('高级功能激活码'), _t('升级到<a href="http://www.fengziliu.com/typembed.html" target="_blank">最新版本</a>，填入激活码保存后可开启高级功能。<br />
-激活码关注微信公众号“<a href="http://www.rifuyiri.net/wp-content/uploads/2014/08/972e6fb0794d359.jpg" target="_blank">ri-fu-yi-ri</a>”回复“Typembed Code”即可获得～'));
+            $typembed_code_text = new Typecho_Widget_Helper_Form_Element_Text('typembed_code', NULL, '', _t('高级功能激活码'), _t('填入激活码保存后可开启高级功能。<br />
+激活码:81ZDzYWnqKfjjRME'));
             $form->addInput($typembed_code_text);
             $jump_play = new Typecho_Widget_Helper_Form_Element_Hidden('jump_play', NULL, 0);
             $form->addInput($jump_play->addRule('enum', _t('必须选择一个模式'), array(0, 1)));
