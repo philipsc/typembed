@@ -81,8 +81,8 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
                 '//www.youtube.com/embed/{video_id}',
             ),
             'www.bilibili.com' => array(
-                '#https?://www\.bilibili\.com/video/av(?<video_id>\d+)#i',
-                '//www.bilibili.com/html/player.html?aid={video_id}&page=1',
+                '#https?://www\.bilibili\.com/video/BV(?<video_id>[a-z0-9_=\-]+)#i',
+                '//player.bilibili.com/player.html?bvid={video_id}&page=1',
                 '',
             ),
             'www.dailymotion.com' => array(
