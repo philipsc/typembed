@@ -1,6 +1,7 @@
 # typembed
 
 Typembed is a plug-in that adds support for online video to Typecho (supports HTML5 playback on mobile phones, tablets and other devices). Currently supports bilibili, AcFun, YouTube, Youku, QQ Music MV, Tencent Video.
+
 Typembed 是为 Typecho 添加对在线视频支持的一款插件（支持手机、平板等设备HTML5播放）。目前支持bilibili、AcFun、YouTube、优酷、QQ音乐MV、腾讯视频。
 
 与 WordPress 支持的 oembed 可以无缝切换，换博客系统也不用担心内容不一致。
