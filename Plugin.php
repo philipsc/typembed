@@ -10,7 +10,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * @link https://www.v2ex.cc/152.html
  */
 class Typembed_Plugin implements Typecho_Plugin_Interface{
-
     /**
      * 激活插件方法,如果激活失败,直接抛出异常
      *
@@ -22,7 +21,6 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
         Typecho_Plugin::factory('Widget_Abstract_Contents')->contentEx = array('Typembed_Plugin', 'parse');
         Typecho_Plugin::factory('Widget_Abstract_Contents')->excerptEx = array('Typembed_Plugin', 'parse');
     }
-
     public static function parse($content, $widget, $lastResult){
         $content = empty($lastResult) ? $content : $lastResult;
         if ($widget instanceof Widget_Archive){
@@ -30,17 +28,10 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
         }
         return $content;
     }
-
     public static function parseCallback($matches){
         $no_html5 = array(
             'www.le.com',
-            'www.letv.com',
             'v.yinyuetai.com',
-            'v.ku6.com',
-            'www.mgtv.com',
-            'www.acfun.tv',
-            'www.acfun.cn',
-            'www.bilibili.com'
         );
         $is_music = array('music.163.com');
         $providers = array(
@@ -60,24 +51,8 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
                 'https://v.qq.com/txp/iframe/player.html?vid={video_id}&tiny=0&auto=0',
                 '',
             ),
-            'my.tv.sohu.com' => array(
-                '#https?://my\.tv\.sohu\.com/us/(?:\d+)/(?<video_id>\d+)#i',
-                '//share.vrs.sohu.com/my/v.swf&topBar=1&id={video_id}&autoplay=false&xuid=&from=page',
-                '//tv.sohu.com/upload/static/share/share_play.html#{video_id}_0_0_9001_0',
-            ),
-            'www.wasu.cn' => array(
-                '#https?://www\.wasu\.cn/play/show/id/(?<video_id>\d+)#i',
-                '//s.wasu.cn/portal/player/20141216/WsPlayer.swf?mode=3&vid={video_id}&auto=0&ad=4228',
-                '//www.wasu.cn/Play/iframe/id/{video_id}',
-            ),
             'www.youtube.com' => array(
                 '#https?://www\.youtube\.com/watch\?v=(?<video_id>[a-z0-9_=\-]+)#i',
-                '//www.youtube.com/v/{video_id}',
-                '//www.youtube.com/embed/{video_id}',
-            ),
-            'youtu.be' => array(
-                '#https?://youtu\.be/(?<video_id>[a-z0-9_=\-]+)#i',
-                '//www.youtube.com/v/{video_id}',
                 '//www.youtube.com/embed/{video_id}',
             ),
             'www.bilibili.com' => array(
@@ -85,56 +60,16 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
                 '//player.bilibili.com/player.html?bvid={video_id}&page=1',
                 '',
             ),
-            'www.dailymotion.com' => array(
-                '#https?://www\.dailymotion\.com/video/(?<video_id>[a-z0-9_=\-]+)#i',
-                '//www.dailymotion.com/swf/video/{video_id}',
-                '//www.dailymotion.com/embed/video/{video_id}',
-            ),
             'www.acfun.cn' => array(
                 '#https?://www\.acfun\.cn/v/ac(?<video_id>\d+)#i',
-                '//cdn.aixifan.com/player/ACFlashPlayer.out.swf?type=page&url=http://www.acfun.cn/v/ac{video_id}',
+                '//www.acfun.cn/player/ac{video_id}',
                 '',
-            ),
-            'www.acfun.tv' => array(
-                '#https?://www\.acfun\.tv/v/ac(?<video_id>\d+)#i',
-                '//cdn.aixifan.com/player/ACFlashPlayer.out.swf?type=page&url=http://www.acfun.tv/v/ac{video_id}',
-                '',
-            ),
-            'www.le.com' => array(
-                '#https?://(?:[a-z0-9/]+\.)?(?:[le|letv])+\.com/ptv/vplay/(?<video_id>\d+)#i',
-                '//i7.imgs.letv.com/player/swfPlayer.swf?id={video_id}&autoplay=0',
-                '',
-            ),
-            'www.letv.com' => array(
-                '#https?://(?:[a-z0-9/]+\.)?(?:[le|letv])+\.com/ptv/vplay/(?<video_id>\d+)#i',
-                '//i7.imgs.letv.com/player/swfPlayer.swf?id={video_id}&autoplay=0',
-                '',
-            ),
-            'v.yinyuetai.com' => array(
-                '#https?://v\.yinyuetai\.com/video/(?<video_id>\d+)#i',
-                '//player.yinyuetai.com/video/player/{video_id}/v_0.swf',
-                '',
-            ),
-            'v.ku6.com' => array(
-                '#https?://v\.ku6\.com/show/(?<video_id>[a-z0-9\-_\.]+).html#i',
-                '//player.ku6.com/refer/{video_id}/v.swf',
-                '',
-            ),
-            'www.mgtv.com' => array(
-                '#https?://www\.mgtv\.com/(?:[a-z0-9/]+)/(?<video_id>\d+)\.html#i',
-                '//player.mgtv.com/mango-tv3-main/MangoTV_3.swf?play_type=1&video_id={video_id}',
-                '',
-            ),
-            'www.56.com' => array(
-                '#https?://(?:www\.)?56\.com/[a-z0-9]+/(?:play_album\-aid\-[0-9]+_vid\-(?<video_id>[a-z0-9_=\-]+)|v_(?<video_id2>[a-z0-9_=\-]+))#i',
-                '//player.56.com/v_{video_id}.swf',
-                '//www.56.com/iframe/{video_id}',
             ),
             // music
             'music.163.com' => array(
                 '#https?://music\.163\.com/\#/song\?id=(?<video_id>\d+)#i',
-                '',
                 '//music.163.com/outchain/player?type=2&id={video_id}&auto=0&height=90',
+                '',
             ),
         );
         $video_url = $matches['video_url'];
@@ -192,7 +127,6 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
         //注释保留原来的样式
         //return '<div id="typembed" style="background: #333; overflow: hidden; line-height: 0;">'.$html.'</div>';
     }
-
     /**
      * 禁用插件方法,如果禁用失败,直接抛出异常
      *
@@ -202,7 +136,6 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
      * @throws Typecho_Plugin_Exception
      */
     public static function deactivate(){}
-
     /**
      * 获取插件配置面板
      *
@@ -240,7 +173,6 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
             $form->addInput($jump_play->addRule('enum', _t('必须选择一个模式'), array(0, 1)));
         }
     }
-
     /**
      * 个人用户的配置面板
      *
@@ -249,7 +181,6 @@ class Typembed_Plugin implements Typecho_Plugin_Interface{
      * @return void
      */
     public static function personalConfig(Typecho_Widget_Helper_Form $form){}
-
     /**
      * 移动设备识别
      *
