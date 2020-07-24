@@ -1,20 +1,21 @@
 # typembed
 
-Typembed 是为 Typecho 添加对在线视频支持的一款插件（支持手机、平板等设备HTML5播放）。目前支持优酷、搜狐视频、土豆、56、腾讯视频、新浪视频、酷6、华数、乐视 等网站。
+Typembed is a plug-in that adds support for online video to Typecho (supports HTML5 playback on mobile phones, tablets and other devices). Currently supports bilibili, AcFun, YouTube, Youku, QQ Music MV, Tencent Video.
+Typembed 是为 Typecho 添加对在线视频支持的一款插件（支持手机、平板等设备HTML5播放）。目前支持bilibili、AcFun、YouTube、优酷、QQ音乐MV、腾讯视频。
 
 与 WordPress 支持的 oembed 可以无缝切换，换博客系统也不用担心内容不一致。
 
 你可以直接粘贴视频播放页完整的URL到编辑器（单独一行），就可以加载视频播放器（不能在编辑器里实时渲染，文章发布之后可以看到效果）。
 
-效果展示：https://www.v2ex.cc/152.html
+效果展示：https://www.v2ex.cc/archives/152/
 
-1. 更新所有引用的播放器URL协议为自适应
-2. 增加支持QQ音乐MV
-3. 修复优酷视频调用
-4. 修复QQ视频调用
-5. 修复B站视频调用 `手机端效果可能不好`
-6. 手机、电脑端都是用iframe来调用播放器 `因为大多数视频网站已经支持HTML5播放器了`
-7. 测试了优酷、B站、QQ音乐MV、QQ视频，更多的站点暂未测试
+##2020年7月更新
+
+ - 修复对哔哩哔哩新地址的支持
+ - 支持AcFun
+ - 已支持的视频网站有bilibili、AcFun、YouTube、优酷、QQ音乐MV、腾讯视频
+ - 支持网易音乐，注意不要把网易音乐和视频放在同一页面，可能会导致视频尺寸变形
+ - 删除一些不支持html5播放器的视频站点
 
 插件安装
 
